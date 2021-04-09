@@ -1,0 +1,32 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    [
+      "babel-plugin-root-import",
+      {
+        "paths": [
+          {
+            "rootPathSuffix": "./src/config",
+            "rootPathPrefix": "@config"
+          },
+          {
+            "rootPathSuffix": "./src/utils",
+            "rootPathPrefix": "@utils"
+          },
+          {
+            "rootPathSuffix": "./src/models",
+            "rootPathPrefix": "@models"
+          },
+          {
+            "rootPathSuffix": "./src/resolvers",
+            "rootPathPrefix": "@resolvers"
+          },
+          {
+            "rootPathSuffix": "./src/schemas",
+            "rootPathPrefix": "@schemas"
+          }
+        ]
+      }
+    ]
+  ]
+}
