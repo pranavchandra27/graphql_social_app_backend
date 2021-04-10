@@ -1,6 +1,7 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { ApolloServer, PubSub } from "apollo-server";
 import mongoose from "mongoose";
-import { MONGO_URI } from "@config";
 
 import resolvers from "@resolvers";
 import typeDefs from "@schemas";
@@ -14,7 +15,10 @@ const server = new ApolloServer({
 });
 
 mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     server
       .listen()

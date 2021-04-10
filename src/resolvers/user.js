@@ -1,7 +1,6 @@
 import { UserInputError } from "apollo-server";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import { JWT_SECRET } from "@config";
 import { validateLoginInput, validateRegisterInput } from "@utils/validators";
 import User from "@models/User";
 
@@ -13,7 +12,7 @@ const generateToken = (user) => {
       firstName: user.firstName,
       lastName: user.lastName,
     },
-    JWT_SECRET,
+    process.env.JWT_SECRET,
     { expiresIn: "1h" }
   );
 };
