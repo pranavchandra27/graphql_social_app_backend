@@ -9,15 +9,15 @@ import typeDefs from "@schemas";
 const pubsub = new PubSub();
 
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: ({ req }) => ({ req, pubsub }),
   cors: {
     origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
   },
+  typeDefs,
+  resolvers,
+  context: ({ req }) => ({ req, pubsub }),
 });
 
 mongoose
