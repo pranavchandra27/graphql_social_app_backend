@@ -10,10 +10,11 @@ const pubsub = new PubSub();
 
 const server = new ApolloServer({
   cors: {
-    origin: "*",
+    origin: "https://social-media-react-flax.vercel.app/",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     preflightContinue: false,
     optionsSuccessStatus: 204,
+    allowedHeaders: "*",
   },
   typeDefs,
   resolvers,
