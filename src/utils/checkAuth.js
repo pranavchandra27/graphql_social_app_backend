@@ -16,7 +16,7 @@ export default (context) => {
         throw new AuthenticationError("Invalid/Expired token");
       }
     }
-    throw new Error("Authentication token must be 'Beared [token]' ");
+    throw new Error("Authentication token must be 'Bearer [token]' ");
   }
 
   throw new Error("Authorization header must be provided");

@@ -4,8 +4,8 @@ import commentReslover from "@resolvers/comments";
 
 export default {
   Post: {
-    likeCount: (parent) => parent.likes.length,
-    commentCount: (parent) => parent.comments.length,
+    likesCount: (parent) => parent.likes.length,
+    commentsCount: (parent) => parent.comments.length,
   },
   Query: {
     ...userResolver.Query,
