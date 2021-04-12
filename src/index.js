@@ -1,7 +1,9 @@
 import dotenv from "dotenv";
-dotenv.config();
 import { ApolloServer, PubSub } from "apollo-server";
 import mongoose from "mongoose";
+import cors from "cors";
+
+dotenv.config();
 
 import resolvers from "@resolvers";
 import typeDefs from "@schemas";
@@ -9,10 +11,7 @@ import typeDefs from "@schemas";
 const pubsub = new PubSub();
 
 const server = new ApolloServer({
-  cors: {
-    origin: "*",
-    credentials: true,
-  },
+  cors: cors(),
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req, pubsub }),
