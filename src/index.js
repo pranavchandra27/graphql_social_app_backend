@@ -12,7 +12,12 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req, pubsub }),
-  cors: process.env.NODE_ENV === "production" ? true : false,
+  cors: {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  },
 });
 
 mongoose
