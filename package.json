@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.19.1",
+    "babel-cli": "^6.26.0",
     "babel-plugin-root-import": "^6.6.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
