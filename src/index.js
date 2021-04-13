@@ -1,22 +1,19 @@
 import dotenv from "dotenv";
 import { ApolloServer, PubSub } from "apollo-server";
 import mongoose from "mongoose";
-
-dotenv.config();
-
 import resolvers from "@resolvers";
 import typeDefs from "@schemas";
+dotenv.config();
+
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+};
 
 const pubsub = new PubSub();
 
 const server = new ApolloServer({
-  cors: {
-    origin:
-      process.env.NODE_ENV === "production"
-        ? "https://social-media-react-flax.vercel.app"
-        : "http://localhost:3000",
-    credentials: true,
-  },
+  cors: corsOptions,
   typeDefs,
   resolvers,
   context: ({ req }) => ({ req, pubsub }),
